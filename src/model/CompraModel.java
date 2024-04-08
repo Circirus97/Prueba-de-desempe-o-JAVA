@@ -2,8 +2,10 @@ package model;
 
 import database.CompraCRUD;
 import database.ConfigDB;
+import entity.Cliente;
 import entity.Compra;
 import entity.Producto;
+import entity.Tienda;
 
 import javax.swing.*;
 import java.sql.Connection;
@@ -19,7 +21,6 @@ public class CompraModel implements CompraCRUD {
     @Override
     public Compra create(Compra compra) {
         Connection connection = ConfigDB.openConnection();
-        Producto producto = new Producto();
 
         try {
 
@@ -237,6 +238,7 @@ public class CompraModel implements CompraCRUD {
 
         ConfigDB.closeConnection();
     }
+
 
 
 }

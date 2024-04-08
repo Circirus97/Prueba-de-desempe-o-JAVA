@@ -118,7 +118,8 @@ public class Main {
                                     3. Actualizar informacion de la compras.
                                     4. Eliminar una compras.
                                     5. Mostrar todas las compras.
-                                    6. Salir.
+                                    6. Mostrar facturas
+                                    7. Salir.
                                 """);
                         switch (opcion) {
                             case "1":
@@ -136,8 +137,11 @@ public class Main {
                             case "5":
                                 compraController.findAll();
                                 break;
+                            case "6":
+                                compraController.showCompra();
+                                break;
                         }
-                    } while (!opcion.equals("6"));
+                    } while (!opcion.equals("7"));
                     break;
             }
 

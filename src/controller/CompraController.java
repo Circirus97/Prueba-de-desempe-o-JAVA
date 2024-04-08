@@ -3,6 +3,7 @@ package controller;
 import entity.Cliente;
 import entity.Compra;
 import entity.Producto;
+import entity.Tienda;
 import model.ClienteModel;
 import model.CompraModel;
 import model.ProductoModel;
@@ -142,8 +143,6 @@ public class CompraController {
 
         this.productoModel.updateProduct(updateCantidad, producto.getId());
 
-
     }
-
 
 }
