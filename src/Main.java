@@ -1,7 +1,6 @@
 import controller.ClienteController;
 import controller.ProductoController;
 import database.ConfigDB;
-import entity.Producto;
 import model.ClienteModel;
 import model.ProductoModel;
 import model.TiendaModel;

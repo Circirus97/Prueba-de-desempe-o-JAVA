@@ -2,8 +2,6 @@ package model;
 
 import database.ConfigDB;
 import database.TiendaCRUD;
-import entity.Cliente;
-import entity.Producto;
 import entity.Tienda;
 
 import javax.swing.*;

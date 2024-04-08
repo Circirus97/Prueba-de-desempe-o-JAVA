@@ -1,6 +1,5 @@
 package controller;
 
-import database.ProductoCRUD;
 import entity.Producto;
 import entity.Tienda;
 import model.ProductoModel;

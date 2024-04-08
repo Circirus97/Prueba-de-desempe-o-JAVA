@@ -4,7 +4,6 @@ import entity.Cliente;
 import model.ClienteModel;
 
 import javax.swing.*;
-import java.time.LocalDate;
 import java.util.List;
 
 public class ClienteController{
