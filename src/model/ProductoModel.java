@@ -2,6 +2,7 @@ package model;
 
 import database.ConfigDB;
 import database.ProductoCRUD;
+import entity.Compra;
 import entity.Producto;
 
 import javax.swing.*;
@@ -242,6 +243,33 @@ public class ProductoModel implements ProductoCRUD {
 
         ConfigDB.closeConnection();
 
+    }
+
+    public Producto updateProduct(Producto producto){
+
+        Connection connection = ConfigDB.openConnection();
+
+        try {
+
+            String sql = "UPDATE productos SET stock = ? WHERE id = ?;";
+
+
+            PreparedStatement prepareCall = connection.prepareStatement(sql);
+
+            prepareCall.setInt(1, producto.getStock());
+            prepareCall.setInt(2, producto.getId());
+
+            prepareCall.execute();
+
+            prepareCall.close();
+            JOptionPane.showMessageDialog(null, "Producto actualizado correctamente.\n" + producto);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error actualizando\n " + e.getMessage());
+        }
+
+        ConfigDB.closeConnection();
+        return producto;
     }
 
     }

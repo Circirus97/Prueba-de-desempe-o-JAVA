@@ -114,20 +114,25 @@ public class CompraController {
 
         Integer cantidad = Integer.valueOf(JOptionPane.showInputDialog(null, "Ingrese la cantidad: )"));
 
+
+        Integer nuevaCompra = compra.getCantidad() - cantidad;
+
+
+
         if (cantidad > producto.getStock()) {
             JOptionPane.showMessageDialog(null, "La cantidad ingresada es mayor al stock disponible");
             cantidad = Integer.valueOf(JOptionPane.showInputDialog(null, "Ingrese la cantidad: )"));
             compra.setIdCliente(cliente.getId());
             compra.setIdProducto(producto.getId());
-            compra.setCantidad(cantidad);
-
+            compra.setCantidad(nuevaCompra);
             this.compraModel.create(compra);
+
+
         }else {
 
             compra.setIdCliente(cliente.getId());
             compra.setIdProducto(producto.getId());
-            compra.setCantidad(cantidad);
-
+            compra.setCantidad(nuevaCompra);
             this.compraModel.create(compra);
         }
 
