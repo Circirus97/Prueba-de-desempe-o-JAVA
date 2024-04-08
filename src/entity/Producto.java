@@ -12,14 +12,17 @@ public class Producto {
 
     private Integer idTienda;
 
+    private Tienda tienda;
+
     public Producto() {}
 
-    public Producto(Integer id, String nombre, Double precio, Integer stock, Integer idTienda) {
+    public Producto(Integer id, String nombre, Double precio, Integer stock, Integer idTienda, Tienda tienda) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
         this.stock = stock;
         this.idTienda = idTienda;
+        this.tienda = tienda;
     }
 
     public Integer getId() {
@@ -62,6 +65,13 @@ public class Producto {
         this.idTienda = idTienda;
     }
 
+    public Tienda getTienda() {
+        return tienda;
+    }
+
+    public void setTienda(Tienda tienda) {
+        this.tienda = tienda;
+    }
 
     @Override
     public String toString() {

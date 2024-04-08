@@ -2,7 +2,6 @@ package model;
 
 import database.ConfigDB;
 import database.ProductoCRUD;
-import entity.Compra;
 import entity.Producto;
 
 import javax.swing.*;

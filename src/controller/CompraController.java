@@ -6,6 +6,7 @@ import entity.Producto;
 import model.ClienteModel;
 import model.CompraModel;
 import model.ProductoModel;
+import model.TiendaModel;
 
 import javax.swing.*;
 import java.util.List;
@@ -18,10 +19,13 @@ public class CompraController {
 
     ClienteModel clienteModel;
 
-    public CompraController(CompraModel compraModel, ProductoModel productoModel, ClienteModel clienteModel) {
+    TiendaModel tiendaModel;
+
+    public CompraController(CompraModel compraModel, ProductoModel productoModel, ClienteModel clienteModel, TiendaModel tiendaModel) {
         this.compraModel = new CompraModel();
         this.productoModel = new ProductoModel();
         this.clienteModel = new ClienteModel();
+        this.tiendaModel = new TiendaModel();
     }
 
     public void delete() {
@@ -137,7 +141,6 @@ public class CompraController {
         }
 
         this.productoModel.updateProduct(updateCantidad, producto.getId());
-
 
 
     }

@@ -8,6 +8,7 @@ public class Tienda {
 
     private String ubicacion;
 
+
     public Tienda() {}
 
     public Tienda(Integer id, String nombre, String ubicacion) {

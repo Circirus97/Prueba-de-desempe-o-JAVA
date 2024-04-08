@@ -23,7 +23,7 @@ public class Main {
         ProductoController productoController = new ProductoController(productoModel, tiendaModel);
 
         CompraModel compraModel = new CompraModel();
-        CompraController compraController = new CompraController(compraModel, productoModel, clienteModel);
+        CompraController compraController = new CompraController(compraModel, productoModel, clienteModel, tiendaModel);
 
 
 
