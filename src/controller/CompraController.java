@@ -78,12 +78,14 @@ public class CompraController {
             Producto producto = productoList.stream().filter(producto1 -> producto1.getNombre().equals(selectedFilterProducto)).findFirst().get();
 
             List<Compra> compraList = this.compraModel.findByFilter(selectedFilter, String.valueOf(producto.getId()));
+        } else {
+
+            String valueFilter = JOptionPane.showInputDialog(null, "Ingrese el dato solicitado para la consulta\n");
+
+            List<Compra> compraList = this.compraModel.findByFilter(selectedFilter, valueFilter);
         }
 
 
-        String valueFilter = JOptionPane.showInputDialog(null, "Ingrese el dato solicitado para la consulta\n");
-
-        List<Compra> compraList = this.compraModel.findByFilter(selectedFilter, valueFilter);
 
     }
 
@@ -117,7 +119,6 @@ public class CompraController {
 
         compra.setIdCliente(cliente.getId());
         compra.setIdProducto(producto.getId());
-        compra.setFechaCompra(compra.getFechaCompra());
         compra.setCantidad(cantidad);
 
         this.compraModel.create(compra);

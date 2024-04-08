@@ -94,7 +94,7 @@ public class CompraModel implements CompraCRUD {
         try {
 
             if (Objects.equals(filter, "ID")) {
-                sql = "SELECT * FROM productos WHERE id = ?;";
+                sql = "SELECT * FROM compras WHERE id = ?;";
 
                 compraList = findById(sql, value);
 
@@ -193,11 +193,11 @@ public class CompraModel implements CompraCRUD {
 
         try {
 
-            String sql = "UPDATE compras SET  cantidad = ? WHERE id = ?;";
-
+            String sql = "UPDATE compras SET id_producto = ?, cantidad = ? WHERE id = ?;";
 
             PreparedStatement prepareCall = connection.prepareStatement(sql);
 
+            prepareCall.setInt(1, compra.getIdProducto());
             prepareCall.setInt(2, compra.getCantidad());
             prepareCall.setInt(3, compra.getId());
 

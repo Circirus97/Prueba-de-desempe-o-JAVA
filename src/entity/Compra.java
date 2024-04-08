@@ -73,6 +73,6 @@ public class Compra {
                 ", idProducto: " + idProducto +
                 ", fecha Compra: " + fechaCompra +
                 ", cantidad: " + cantidad +
-                '}';
+                "\n ----------------------------------------------------------------\n";
     }
 }
