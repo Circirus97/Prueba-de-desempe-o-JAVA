@@ -47,6 +47,12 @@ public class CompraModel implements CompraCRUD {
         return compra;
     }
 
+/*    public Compra updateProduct(Integer compra, Integer id){
+
+
+
+    }*/
+
     @Override
     public List<Compra> findAll() {
 

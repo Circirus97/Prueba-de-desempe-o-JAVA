@@ -116,6 +116,12 @@ public class CompraController {
 
         if (cantidad > producto.getStock()) {
             JOptionPane.showMessageDialog(null, "La cantidad ingresada es mayor al stock disponible");
+            cantidad = Integer.valueOf(JOptionPane.showInputDialog(null, "Ingrese la cantidad: )"));
+            compra.setIdCliente(cliente.getId());
+            compra.setIdProducto(producto.getId());
+            compra.setCantidad(cantidad);
+
+            this.compraModel.create(compra);
         }else {
 
             compra.setIdCliente(cliente.getId());
