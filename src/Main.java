@@ -1,6 +1,10 @@
 import controller.ClienteController;
+import controller.ProductoController;
 import database.ConfigDB;
+import entity.Producto;
 import model.ClienteModel;
+import model.ProductoModel;
+import model.TiendaModel;
 
 import javax.swing.*;
 
@@ -11,6 +15,13 @@ public class Main {
 
         ClienteModel clienteModel = new ClienteModel();
         ClienteController clienteController = new ClienteController(clienteModel);
+
+        TiendaModel tiendaModel = new TiendaModel();
+
+        ProductoModel productoModel = new ProductoModel();
+        ProductoController productoController = new ProductoController(productoModel, tiendaModel);
+
+
 
         String opcion;
 
@@ -42,19 +53,19 @@ public class Main {
                                 """);
                         switch (opcion) {
                             case "1":
-                                //productoController.create();
+                                productoController.create();
                                 break;
                             case "2":
-                                //productoController.findByFilters();
+                                productoController.findByFilters();
                                 break;
                             case "3":
-                                //productoController.update();
+                                productoController.update();
                                 break;
                             case "4":
-                                //productoController.delete();
+                                productoController.delete();
                                 break;
                             case "5":
-                                //productoController.findAll();
+                                productoController.findAll();
                                 break;
                         }
                     } while (!opcion.equals("6"));
