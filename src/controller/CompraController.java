@@ -18,13 +18,13 @@ public class CompraController {
 
     ClienteModel clienteModel;
 
-    public CompraController(CompraModel compraModel, ProductoModel productoModel, ClienteModel clienteModel){
+    public CompraController(CompraModel compraModel, ProductoModel productoModel, ClienteModel clienteModel) {
         this.compraModel = new CompraModel();
         this.productoModel = new ProductoModel();
         this.clienteModel = new ClienteModel();
     }
 
-    public void delete(){
+    public void delete() {
 
         List<Compra> compraList = compraModel.findAll();
 
@@ -35,7 +35,7 @@ public class CompraController {
 
     }
 
-    public void update(){
+    public void update() {
 
         List<Compra> compraList = compraModel.findAll();
         List<Producto> productoList = productoModel.findAll();
@@ -86,7 +86,6 @@ public class CompraController {
         }
 
 
-
     }
 
     public void findAll() {
@@ -110,21 +109,24 @@ public class CompraController {
         String seleccionFiltroProducto =
                 (String) JOptionPane.showInputDialog(null, "Seleccione el producto\n", "Filter", JOptionPane.QUESTION_MESSAGE, null, opcionesProducto, opcionesProducto[0]);
 
-
-        Integer cantidad = Integer.valueOf(JOptionPane.showInputDialog(null, "Ingrese la cantidad: )"));
-
-
         Cliente cliente = clienteList.stream().filter(clienteFilter -> clienteFilter.getNombre().equals(seleccionFiltroCliente)).findFirst().get();
         Producto producto = productoList.stream().filter(productoFilter -> productoFilter.getNombre().equals(seleccionFiltroProducto)).findFirst().get();
 
-        compra.setIdCliente(cliente.getId());
-        compra.setIdProducto(producto.getId());
-        compra.setCantidad(cantidad);
+        Integer cantidad = Integer.valueOf(JOptionPane.showInputDialog(null, "Ingrese la cantidad: )"));
 
-        this.compraModel.create(compra);
+        if (cantidad > producto.getStock()) {
+            JOptionPane.showMessageDialog(null, "La cantidad ingresada es mayor al stock disponible");
+        }else {
+
+            compra.setIdCliente(cliente.getId());
+            compra.setIdProducto(producto.getId());
+            compra.setCantidad(cantidad);
+
+            this.compraModel.create(compra);
+        }
+
 
     }
-
 
 
 }

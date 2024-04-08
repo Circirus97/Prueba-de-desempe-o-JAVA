@@ -3,6 +3,7 @@ package model;
 import database.CompraCRUD;
 import database.ConfigDB;
 import entity.Compra;
+import entity.Producto;
 
 import javax.swing.*;
 import java.sql.*;
@@ -16,6 +17,7 @@ public class CompraModel implements CompraCRUD {
     @Override
     public Compra create(Compra compra) {
         Connection connection = ConfigDB.openConnection();
+        Producto producto = new Producto();
 
         try {
 
@@ -33,7 +35,6 @@ public class CompraModel implements CompraCRUD {
             while (result.next()) {
                 compra.setId(result.getInt(1));
             }
-
 
             prepareCall.close();
             JOptionPane.showMessageDialog(null, "Compra agregada correctamente.\n" + compra);
