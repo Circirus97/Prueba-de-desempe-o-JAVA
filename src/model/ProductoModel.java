@@ -23,7 +23,7 @@ public class ProductoModel implements ProductoCRUD {
 
             String sql = "INSERT INTO productos(nombre, precio, id_tienda, stock) VALUES (?, ?, ?, ?);";
 
-            PreparedStatement prepareCall = connection.prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
+            PreparedStatement prepareCall = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 
             prepareCall.setString(1, producto.getNombre());
             prepareCall.setDouble(2, producto.getPrecio());
@@ -139,7 +139,6 @@ public class ProductoModel implements ProductoCRUD {
                 producto.setStock(result.getInt("stock"));
 
 
-
                 productoList.add(producto);
             }
 
@@ -174,7 +173,6 @@ public class ProductoModel implements ProductoCRUD {
                 producto.setPrecio(result.getDouble("precio"));
                 producto.setIdTienda(result.getInt("id_tienda"));
                 producto.setStock(result.getInt("stock"));
-
 
 
                 productoList.add(producto);
@@ -227,7 +225,7 @@ public class ProductoModel implements ProductoCRUD {
 
         Connection connection = ConfigDB.openConnection();
 
-        try{
+        try {
             String sql = "DELETE FROM productos WHERE id = ?;";
 
             PreparedStatement prepareCall = connection.prepareStatement(sql);
@@ -237,7 +235,7 @@ public class ProductoModel implements ProductoCRUD {
 
             JOptionPane.showMessageDialog(null, "Producto eliminado correctamente.\n");
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error eliminando \n" + e.getMessage());
         }
 
@@ -245,7 +243,7 @@ public class ProductoModel implements ProductoCRUD {
 
     }
 
-    public Producto updateProduct(Producto producto){
+    public void updateProduct(Integer cantidad, Integer id) {
 
         Connection connection = ConfigDB.openConnection();
 
@@ -256,21 +254,20 @@ public class ProductoModel implements ProductoCRUD {
 
             PreparedStatement prepareCall = connection.prepareStatement(sql);
 
-            prepareCall.setInt(1, producto.getStock());
-            prepareCall.setInt(2, producto.getId());
+            prepareCall.setInt(1, cantidad);
+            prepareCall.setInt(2, id);
 
             prepareCall.execute();
 
             prepareCall.close();
-            JOptionPane.showMessageDialog(null, "Producto actualizado correctamente.\n" + producto);
+            JOptionPane.showMessageDialog(null, "Producto actualizado correctamente.\n");
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error actualizando\n " + e.getMessage());
         }
 
         ConfigDB.closeConnection();
-        return producto;
     }
 
-    }
+}
 

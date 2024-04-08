@@ -235,42 +235,4 @@ public class CompraModel implements CompraCRUD {
         ConfigDB.closeConnection();
     }
 
-    public Compra updateProduct(Compra compra){
-
-        Connection connection = ConfigDB.openConnection();
-
-        try {
-
-            String sqlCompras = "SELECT * FROM compras c JOIN productos p ON f.id_producto = a.id WHERE a.id = ?;";
-
-            PreparedStatement prepareCallCompra = connection.prepareStatement(sqlCompras);
-            prepareCallCompra.setInt(1, id);
-            prepareCallCompra.execute();
-            prepareCallCompra.close();
-
-            String sql = "UPDATE productos SET stock = ? WHERE id = ?;";
-
-
-            PreparedStatement prepareCall = connection.prepareStatement(sql);
-
-            prepareCall.setInt(1, compra.getIdProducto());
-            prepareCall.setInt(2, producto.getId());
-
-            prepareCall.execute();
-
-            prepareCall.close();
-            JOptionPane.showMessageDialog(null, "Producto actualizado correctamente.\n" + producto);
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error actualizando\n " + e.getMessage());
-        }
-
-        ConfigDB.closeConnection();
-        return producto;
-    }
-
-
-
-
-
 }
