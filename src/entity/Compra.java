@@ -1,5 +1,6 @@
 package entity;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
 
 public class Compra {
@@ -10,13 +11,13 @@ public class Compra {
 
     private Integer idProducto;
 
-    private LocalDate fechaCompra;
+    private Timestamp fechaCompra;
 
     private Integer cantidad;
 
     public Compra() { }
 
-    public Compra(Integer id, Integer idCliente, Integer idProducto, LocalDate fechaCompra, Integer cantidad) {
+    public Compra(Integer id, Integer idCliente, Integer idProducto, Timestamp fechaCompra, Integer cantidad) {
         this.id = id;
         this.idCliente = idCliente;
         this.idProducto = idProducto;
@@ -48,11 +49,11 @@ public class Compra {
         this.idProducto = idProducto;
     }
 
-    public LocalDate getFechaCompra() {
+    public Timestamp getFechaCompra() {
         return fechaCompra;
     }
 
-    public void setFechaCompra(LocalDate fechaCompra) {
+    public void setFechaCompra(Timestamp fechaCompra) {
         this.fechaCompra = fechaCompra;
     }
 

@@ -1,7 +1,9 @@
 import controller.ClienteController;
+import controller.CompraController;
 import controller.ProductoController;
 import database.ConfigDB;
 import model.ClienteModel;
+import model.CompraModel;
 import model.ProductoModel;
 import model.TiendaModel;
 
@@ -19,6 +21,9 @@ public class Main {
 
         ProductoModel productoModel = new ProductoModel();
         ProductoController productoController = new ProductoController(productoModel, tiendaModel);
+
+        CompraModel compraModel = new CompraModel();
+        CompraController compraController = new CompraController(compraModel, productoModel, clienteModel);
 
 
 
@@ -117,19 +122,19 @@ public class Main {
                                 """);
                         switch (opcion) {
                             case "1":
-                                //compraController.create();
+                                compraController.create();
                                 break;
                             case "2":
-                                //compraController.findByFilter();
+                                compraController.findByFilter();
                                 break;
                             case "3":
-                                //compraController.update();
+                                compraController.update();
                                 break;
                             case "4":
-                                //compraController.delete();
+                                compraController.delete();
                                 break;
                             case "5":
-                                //compraController.findAll();
+                                compraController.findAll();
                                 break;
                         }
                     } while (!opcion.equals("6"));
